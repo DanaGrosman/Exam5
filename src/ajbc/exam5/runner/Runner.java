@@ -21,6 +21,7 @@ public class Runner {
 	// Design pattern: Adapter
 	public static void main(String[] args) {
 		System.out.println("---------Q1---------");
+		
 		EnemyTank enemyTank = new EnemyTank();
 		BadHelicopter badHelicopter = new BadHelicopter();
 		BadEnemyToEnemyAdapter toEnemyAdapter = new BadEnemyToEnemyAdapter(badHelicopter);
@@ -32,13 +33,15 @@ public class Runner {
 		enemyTank.fireWeapon();
 
 		badHelicopter.yawsRight();
+		badHelicopter.flyDown();
+		badHelicopter.launchesMissile();
 		toEnemyAdapter.turnRight();
 		toEnemyAdapter.driveBackward();
 		toEnemyAdapter.fireWeapon();
 		
 		System.out.println("---------Q2---------");
 
-		System.out.println("Read apartments list from file: ");
+		System.out.println("Read apartments list from JSON file: ");
 		List<Apartment> apartments = readApartmentListFromJSONFile("jsonFiles//JSONfile.json");
 		System.out.println("Apartment list: ");
 		apartments.forEach(System.out::println);
